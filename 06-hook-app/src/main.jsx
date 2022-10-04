@@ -11,10 +11,12 @@ import { MemoHook } from "./06-memos/MemoHook";
 // import { CounterApp } from "./01-UseState/CounterApp";
 // import { CounterWithCustomHooks } from "./01-UseState/CounterWithCustomHooks";
 // import { HooksApp } from "./HooksApp";
+import "./08-useReducer/intro-reducer";
+import { TodoApp } from "./08-useReducer/TodoApp";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   //<React.StrictMode>
-  <CallbackHook />
+  <TodoApp />
   //</React.StrictMode>
 );
