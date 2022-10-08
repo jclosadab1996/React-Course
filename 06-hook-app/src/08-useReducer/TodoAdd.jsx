@@ -1,38 +1,44 @@
-import { useForm } from "../hooks/useForm";
+import { useForm } from '../hooks/useForm';
+
 
 export const TodoAdd = ({ onNewTodo }) => {
-  const { description, onInputChange, onResetForm } = useForm({
-    description: "",
-  });
 
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-    if (description.length <= 1) return;
+    const { description, onInputChange, onResetForm } = useForm({
+        description: ''
+    });
 
-    const newTodo = {
-      id: new Date().getTime(),
-      done: false,
-      description: description,
-    };
+    const onFormSubmit = ( event ) => {
+        event.preventDefault();
+        if ( description.length <= 1 ) return;
 
-    onNewTodo(newTodo);
-    onResetForm();
-  };
+        const newTodo = {
+            id: new Date().getTime(),
+            done: false,
+            description: description,
+        }
 
-  return (
-    <form onSubmit={onFormSubmit}>
-      <input
-        type="text"
-        placeholder="¿Qué hay que hacer?"
-        className="form-control"
-        name="description"
-        value={description}
-        onChange={onInputChange}
-      />
+        onNewTodo(newTodo);
+        onResetForm();
+    }
 
-      <button type="submit" className="btn btn-outline-primary mt-1">
-        Agregar
-      </button>
-    </form>
-  );
-};
+
+    return (
+        <form onSubmit={ onFormSubmit }>
+            <input 
+                type="text" 
+                placeholder="¿Qué hay que hacer?"
+                className="form-control"
+                name="description"
+                value={ description }
+                onChange={ onInputChange }
+            />
+
+            <button 
+                type="submit"
+                className="btn btn-outline-primary mt-1"
+            >
+                Agregar
+            </button>
+        </form>
+    )
+}
